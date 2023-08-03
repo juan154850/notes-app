@@ -1,0 +1,59 @@
+.Container {
+  display: flex;
+  margin-left: 40px;
+  margin-top: 10px;  
+}
+.ButtonsContainer {
+  display: flex;
+  margin-left: 20px;
+  margin-top: 10px;
+  width: 300px;
+    height: 40px;
+}
+
+.ShowArchivedNotesButton {
+  padding: 10px 16px;
+  background-color: #2196F3;
+  color: white;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.ShowArchivedNotesButton:hover {
+  background-color: #0d8bf2;
+}
+
+.ShowArchivedNotesButton:focus {
+  outline: none;
+}
+
+.ShowArchivedNotesButton:active {
+  background-color: #0a71cb;
+}
+
+.WarningMessage {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px;
+  padding: 8px 16px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+.WarningMessage:hover {
+  transform: translateY(-2px);
+}
+
+.WarningMessage:focus {
+  outline: none;
+}
+
+.WarningMessage:active {
+  transform: translateY(2px);
+}

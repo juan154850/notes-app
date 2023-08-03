@@ -1,0 +1,20 @@
+{
+  "name": "challenge-juan-bermudez-c",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",  
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "create-env": "node setup.js",
+    "install-deps": "npm install && npm run create-env && npm install --prefix backend && npm install --prefix frontend && npm run drop-db --prefix backend && npm run create-db --prefix backend && npm run migrate --prefix backend && npm run seed --prefix backend && npm run start-dev",
+    "start-backend": "npm run dev --prefix backend",
+    "start-frontend": "npm run dev --prefix frontend",
+    "start-dev": "npm-run-all --parallel start-backend start-frontend"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}

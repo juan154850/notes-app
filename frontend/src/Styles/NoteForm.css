@@ -1,0 +1,117 @@
+/* Styles for the form inside the modal */
+form {
+  background-color: white;
+  padding-left: 80px;
+    padding-right: 80px;
+    padding-bottom: 30px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 100%;
+}
+
+/* Styles for the labels */
+form label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Styles for input and textarea */
+form input[type="text"],
+form textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-width: 100%;
+    min-width: 100%;
+}
+
+/* Styles for the Cancel button */
+.NoteForm-button.NoteForm-cancel {
+  background-color: #f44336;
+}
+
+.NoteForm-button.NoteForm-cancel:hover {
+  background-color: #d32f2f;
+}
+
+/* Styles for the Save button */
+.NoteForm-button.NoteForm-button--add {
+  background-color: #4caf50;
+}
+
+.NoteForm-button.NoteForm-button--add:hover {
+  background-color: #45a049;
+}
+
+/* Styles for the button container */
+.NoteForm-buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+/* Styles for the buttons inside the container */
+.NoteForm-buttonContainer button {
+  margin-left: 8px;
+  padding: 8px 16px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Styles for the cancel button */
+.NoteForm-buttonContainer .NoteForm-cancel {
+  background-color: #f44336;
+}
+
+.NoteForm-buttonContainer .NoteForm-cancel:hover {
+  background-color: #d32f2f;
+}
+
+/* Styles for the save button */
+.NoteForm-buttonContainer .NoteForm-button--add {
+  background-color: #4caf50;
+}
+
+.NoteForm-buttonContainer .NoteForm-button--add:hover {
+  background-color: #45a049;
+}
+.Container-categories {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 104%;
+  flex-direction: column;
+}
+
+.Categories {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+
+}
+
+.Categories img,
+span {
+  margin-right: 15px;
+}
+
+.Icon-category {
+  width: 5%;
+}
+
+.Icon-category-delete:hover {
+  cursor: pointer;
+}
+
+.Category-text {
+  font-weight: bold;
+}
+
+.Create-categories {
+  display: flex;
+  justify-content: space-between;
+  max-width: 90%;  
+}

@@ -1,0 +1,48 @@
+.NoteItem {
+  display: flex;
+  justify-content: space-between;
+    align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+li.NoteItem {
+  width: 25%;
+}
+
+.NoteItem-left {
+  display: flex;
+  align-items: center;
+}
+
+.NoteItem-noteIcon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.NoteItem-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.NoteItem-right {
+  display: flex;
+  align-items: center;
+}
+.NoteItem-deleteIcon {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+span {
+  font-size: 12px;
+}
