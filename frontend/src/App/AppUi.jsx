@@ -11,11 +11,15 @@ import { CategoriesContext } from "../Components/CategoriesContext.jsx";
 
 const AppUI = () => {
   const { notes, openModal, deleteNote, handleEditNote, editingNote, archiveNote, unarchiveNote } = useContext(NoteContext);
-  const { categories } = useContext(CategoriesContext);
+  const { categories, onChangeFilteredCategory, selectedCategory } = useContext(CategoriesContext);
   const [showArchivedNotes, setShowArchivedNotes] = useState(false); // New status to control archived notes
 
   // Filter notes according to showArchivedNotes status
-  const filteredNotes = showArchivedNotes ? notes.filter((note) => note.is_archived) : notes.filter((note) => !note.is_archived);
+  let filteredNotes = showArchivedNotes ? notes.filter((note) => note.is_archived) : notes.filter((note) => !note.is_archived);
+
+  if (selectedCategory !== "All") {
+    filteredNotes = filteredNotes.filter((note) => note.categories.includes(selectedCategory));
+  }
   return (
     <>
       <div className="Container">
@@ -27,7 +31,7 @@ const AppUI = () => {
           </button>
         </div>
       </div>
-      <CategoryList categories={categories} />
+      <CategoryList categories={categories} onChangeFilteredCategory={onChangeFilteredCategory} />
       <NoteList>
         {filteredNotes.length === 0 && showArchivedNotes ? (
           <h2 className="WarningMessage">You have no notes in the archive.</h2>

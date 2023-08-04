@@ -56,7 +56,36 @@ const CategoriesProvider = ({ children }) => {
     }
   };
 
-  return <CategoriesContext.Provider value={{ categories, createCategoryOnDB }}>{children}</CategoriesContext.Provider>;
+  const deleteCategoryOnDB = async (categoryId) => {
+    try {
+      let headersList = {
+        Accept: "*/*",
+      };
+
+      let response = await fetch(`http://localhost:3000/categories/${categoryId}`, {
+        method: "DELETE",
+        headers: headersList,
+      });
+
+      if (response.status === 203) {
+        return getCategories();
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  const [selectedCategory, setSelectedCategory] = useState("All"); // New state for the selected category
+
+  const onChangeFilteredCategory = (category) => {
+    setSelectedCategory(category);
+  };
+
+  return (
+    <CategoriesContext.Provider value={{ categories, createCategoryOnDB, selectedCategory, onChangeFilteredCategory, deleteCategoryOnDB }}>
+      {children}
+    </CategoriesContext.Provider>
+  );
 };
 
 export { CategoriesContext, CategoriesProvider };

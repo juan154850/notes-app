@@ -7,7 +7,7 @@ import { CategoriesContext } from "./CategoriesContext";
 
 const NoteForm = ({ isEditing, editNoteId }) => {
   const { setOpenModal, addNote, updateNote, notes, setEditingNote } = useContext(NoteContext);
-  const { categories, createCategoryOnDB } = useContext(CategoriesContext);
+  const { categories, createCategoryOnDB, deleteCategoryOnDB } = useContext(CategoriesContext);
 
   const [newNoteTitle, setNewNoteTitle] = useState("");
   const [newNoteContent, setNewNoteContent] = useState("");
@@ -62,6 +62,9 @@ const NoteForm = ({ isEditing, editNoteId }) => {
     const categoryIndex = newNoteCategories.indexOf(category);
     setNewNoteCategories(newNoteCategories.splice(categoryIndex, 1));
     updateNote(editNoteId, newNoteTitle, newNoteContent, newNoteCategories);
+    const categoryOnDb = categories.filter((value) => value.title === category);
+    console.log(categoryOnDb.id);
+    // deleteCategoryOnDB(categoryOnDb.id);
   };
 
   // useEffect to set the values if editing a note
