@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { NoteList } from "../Components/NoteList.jsx";
 import { NoteItem } from "../Components/NoteItem.jsx";
 import { NoteContext } from "../Components/NoteContext.jsx";

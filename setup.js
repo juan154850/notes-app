@@ -24,4 +24,5 @@ const envFilePath = "./backend/.env";
 // Crear el archivo .env en la carpeta backend
 fs.writeFileSync(envFilePath, envContent);
 
-console.log(".env file created successfully.");
+console.log(".env file created successfully."); 
+
