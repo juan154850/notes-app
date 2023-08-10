@@ -1,0 +1,29 @@
+### Get all notes
+GET http://localhost:3000/notes
+content-type: application/json
+
+### Get note by id
+GET http://localhost:3000/notes/22
+content-type: application/json
+
+### Create note
+POST http://localhost:3000/notes
+content-type: application/json
+
+{
+    "title": "notes Created"
+
+}
+
+### Update note
+PUT http://localhost:3000/notes/16
+content-type: application/json
+
+{
+    "title": "notes updated"
+
+}
+
+### Delete note
+DELETE http://localhost:3000/notes/16
+content-type: application/json
