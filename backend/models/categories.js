@@ -13,12 +13,19 @@ class Category extends Model {
 }
 Category.init(
   {
-    title: DataTypes.STRING,
+    title: {
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false,
+      validate: {
+        len: [1, 20],                                        
+      },
+    },
   },
   {
     sequelize,
     modelName: "Category",
-  },
+  }
 );
 
 module.exports =  Category ;

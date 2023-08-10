@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import  { useContext, useState, useEffect } from "react";
 import "../Styles/NoteForm.css";
 import { NoteContext } from "./NoteContext";
 import iconFiel from "../assets/icon-field.png";
@@ -6,14 +6,15 @@ import deleteIconCategory from "../assets/delete-category-icon.png";
 import { CategoriesContext } from "./CategoriesContext";
 
 const NoteForm = ({ isEditing, editNoteId }) => {
+
   const { setOpenModal, addNote, updateNote, notes, setEditingNote } = useContext(NoteContext);
-  const { categories, createCategoryOnDB, deleteCategoryOnDB } = useContext(CategoriesContext);
+  const { categories, createCategoryOnDB } = useContext(CategoriesContext);
 
   const [newNoteTitle, setNewNoteTitle] = useState("");
   const [newNoteContent, setNewNoteContent] = useState("");
   const [newNoteCategories, setNewNoteCategories] = useState("");
   const [newCategory, setNewCategory] = useState("");
-
+  
   const onSubmit = (event) => {
     event.preventDefault();
 
@@ -22,7 +23,7 @@ const NoteForm = ({ isEditing, editNoteId }) => {
       updateNote(editNoteId, newNoteTitle, newNoteContent, newNoteCategories);
     } else {
       // If we are creating a new note, we call the addNote function
-      addNote(newNoteTitle, newNoteContent);
+      addNote(newNoteTitle, newNoteContent);      
     }
 
     // Close the modal after saving the edit or adding a new note
@@ -77,7 +78,7 @@ const NoteForm = ({ isEditing, editNoteId }) => {
         setNewNoteCategories(noteToEdit.categories);
       }
     }
-  }, [isEditing, editNoteId, notes, createCategory]);
+  }, [isEditing, editNoteId, notes]);
 
   return (
     <form onSubmit={onSubmit}>

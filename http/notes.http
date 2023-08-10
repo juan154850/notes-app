@@ -3,7 +3,7 @@ GET http://localhost:3000/notes
 content-type: application/json
 
 ### Get note by id
-GET http://localhost:3000/notes/22
+GET http://localhost:3000/notes/26
 content-type: application/json
 
 ### Create note
@@ -11,19 +11,20 @@ POST http://localhost:3000/notes
 content-type: application/json
 
 {
-    "title": "notes Created"
+    "title": "noldea"
 
 }
 
 ### Update note
-PUT http://localhost:3000/notes/16
+PUT http://localhost:3000/notes/25
 content-type: application/json
 
 {
-    "title": "notes updated"
+    "title": "notes updated",
+    "description": "adwadwadwads"
 
 }
 
 ### Delete note
-DELETE http://localhost:3000/notes/16
+DELETE http://localhost:3000/notes/25
 content-type: application/json

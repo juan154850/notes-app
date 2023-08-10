@@ -14,8 +14,21 @@ class Note extends Model {
 }
 Note.init(
   {
-    title: DataTypes.STRING,
-    description: DataTypes.TEXT,
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 50],        
+      },
+      unique: true,
+    },
+    description: {
+      type: DataTypes.TEXT,
+      validate: {
+        len: [0, 500],
+      },
+      allowNull: true,
+    },
     categories: DataTypes.ARRAY(DataTypes.STRING),
     is_archived: DataTypes.BOOLEAN,
     deleted: DataTypes.BOOLEAN,
@@ -23,7 +36,7 @@ Note.init(
   {
     sequelize,
     modelName: "Note",
-  },
+  }
 );
 
 module.exports =  Note 
