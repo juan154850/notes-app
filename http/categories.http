@@ -3,7 +3,7 @@ GET http://localhost:3000/categories
 content-type: application/json
 
 ### Get category by id
-GET http://localhost:3000/categories/22
+GET http://localhost:3000/categories/23
 content-type: application/json
 
 ### Create category
@@ -11,19 +11,17 @@ POST http://localhost:3000/categories
 content-type: application/json
 
 {
-    "title": "Category Created"
-
+    "title": "message"
 }
 
 ### Update category
-PUT http://localhost:3000/categories/22
+PUT http://localhost:3000/categories/25
 content-type: application/json
 
 {
     "title": "Category updated"
-
 }
 
 ###delete category
-DELETE http://localhost:3000/categories/22
+DELETE http://localhost:3000/categories/24
 content-type: application/json
