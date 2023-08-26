@@ -1,6 +1,6 @@
 "use strict";
 const { Model, DataTypes } = require("sequelize");
-const { sequelize } = require("../src/database/database.js");
+const { sequelize } = require("../database/database.js");
 class Category extends Model {
   /**
    * Helper method for defining associations.

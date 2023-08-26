@@ -1,6 +1,6 @@
 "use strict";
-const { Model, DataTypes } =  require( "sequelize");
-const { sequelize } = require( "../src/database/database.js");
+const { Model, DataTypes } = require("sequelize");
+const { sequelize } = require("../database/database.js");
 
 class Note extends Model {
   /**
@@ -38,12 +38,13 @@ class Note extends Model {
   static async createNote({ title, description }) {
     try {
       if (!title) {
-        throw new Error("The title of the note cannot be empty.")
+        throw new Error("The title of the note cannot be empty.");
       }
-      await Note.create({
+      const newNote = await Note.create({
         title,
         description,
       });
+      return newNote;
     } catch (error) {
       throw new Error(error.message);
     }
@@ -55,38 +56,39 @@ class Note extends Model {
     description,
     categories,
     deleted,
-    is_archived,    
-    }){
+    is_archived,
+  }) {
     try {
       const searchedNote = await Note.findByPk(id);
       if (!searchedNote) {
-        throw new Error("The note with the given id does not exist.")
+        throw new Error("The note with the given id does not exist.");
       }
-      console.log("searchedNote", searchedNote)
       await searchedNote.update({
         title: title,
         description: description,
         categories: categories?.map((category) => category.toLowerCase()),
         deleted: deleted,
         is_archived: is_archived,
-      });      
+      });
       await searchedNote.save();
+      console.log(searchedNote);
+      return searchedNote;
     } catch (error) {
       throw new Error(error.message);
     }
   }
 
-  static async deleteNote({ id }){
+  static async deleteNote({ id }) {
     try {
       const searchedNote = await Note.findByPk(id);
       if (!searchedNote) {
-        throw new Error("The note with the given id does not exist.")}
-      await Note.destroy({where: {id},});
+        throw new Error("The note with the given id does not exist.");
+      }
+      await Note.destroy({ where: { id } });
     } catch (error) {
       throw new Error(error.message);
     }
   }
-
 }
 
 Note.init(
@@ -117,4 +119,4 @@ Note.init(
   }
 );
 
-module.exports =  Note
+module.exports = Note;
